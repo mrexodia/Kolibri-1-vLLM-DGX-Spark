@@ -1,0 +1,54 @@
+{
+  "providers": {
+    "vllm": {
+      "baseUrl": "http://127.0.0.1:8888/v1",
+      "api": "openai-completions",
+      "apiKey": "local",
+      "authHeader": false,
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "supportsUsageInStreaming": true,
+        "supportsStrictMode": false,
+        "maxTokensField": "max_tokens"
+      },
+      "models": [
+        {
+          "id": "kolibri-1",
+          "name": "Kolibri 1",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          },
+          "input": ["text"],
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "samplingParams": {
+            "temperature": 1.0,
+            "top_p": 0.97,
+            "top_k": 128
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": { "$var": "thinking.enabled" },
+              "reasoning_effort": { "$var": "thinking.effort" }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

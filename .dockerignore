@@ -1,0 +1,5 @@
+.git
+.env
+.cache
+.vllm.log
+.vllm.pid
